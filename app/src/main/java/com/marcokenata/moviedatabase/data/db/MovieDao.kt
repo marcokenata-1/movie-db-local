@@ -15,6 +15,6 @@ interface MovieDao {
     fun showFavorite() : List<MovieFavorites>
 
     @Query("select * from movie_favorites where id like :id ")
-    fun checkinFavorites(id : Int) : List<MovieFavorites>
+    fun checkinFavorites(id : Int) : MovieFavorites
 
 }
