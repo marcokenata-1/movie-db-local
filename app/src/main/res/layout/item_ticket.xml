@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="movie"
+            type="com.marcokenata.moviedatabase.data.network.response.Result" />
+    </data>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    app:cardBackgroundColor="#ffffff"
+    app:cardElevation="5dp"
+    app:contentPadding="10dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/iv_moviePoster"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardViewImage="@{movie.posterPath}"
+            />
+
+        <TextView
+            android:id="@+id/tv_movieTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/iv_moviePoster"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="16dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="8dp"
+            android:text="@{movie.originalTitle}"/>
+
+        <TextView
+            android:id="@+id/tv_releaseDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/iv_moviePoster"
+            app:layout_constraintTop_toBottomOf="@id/tv_movieTitle"
+            android:layout_marginLeft="16dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="8dp"
+            android:text="@{movie.releaseDate}"/>
+
+
+        <TextView
+            android:id="@+id/tv_sinposis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/iv_moviePoster"
+            app:layout_constraintTop_toBottomOf="@id/tv_releaseDate"
+            android:layout_marginLeft="16dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="8dp"
+            android:text="@{movie.overview}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+</layout>

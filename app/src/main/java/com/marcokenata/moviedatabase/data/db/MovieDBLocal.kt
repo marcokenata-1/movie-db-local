@@ -2,7 +2,6 @@ package com.marcokenata.moviedatabase.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import com.marcokenata.moviedatabase.data.converters.Converters
 

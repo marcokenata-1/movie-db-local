@@ -2,7 +2,7 @@ package com.marcokenata.moviedatabase.data.db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.movieappv2.data.network.response.Result
+import com.marcokenata.moviedatabase.data.network.response.Result
 
 @Entity(tableName = "movie_favorites")
 class MovieFavorites(

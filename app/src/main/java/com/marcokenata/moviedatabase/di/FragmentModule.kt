@@ -1,5 +1,7 @@
 package com.marcokenata.moviedatabase.di
 
+import com.marcokenata.moviedatabase.ui.detailmovie.DetailMovie
+import com.marcokenata.moviedatabase.ui.favorites.Favorites
 import com.marcokenata.moviedatabase.ui.nowplaying.NowPlaying
 import com.marcokenata.moviedatabase.ui.popular.Popular
 import com.marcokenata.moviedatabase.ui.toprated.TopRated
@@ -10,11 +12,17 @@ import dagger.android.ContributesAndroidInjector
 abstract class FragmentModule {
 
     @ContributesAndroidInjector
-    internal abstract fun nowPlaying() : NowPlaying
+    abstract fun nowPlaying() : NowPlaying
 
     @ContributesAndroidInjector
-    internal abstract fun popular() : Popular
+    abstract fun popular() : Popular
 
     @ContributesAndroidInjector
-    internal abstract fun topRated() : TopRated
+    abstract fun topRated() : TopRated
+
+    @ContributesAndroidInjector
+    abstract fun favorites() : Favorites
+
+    @ContributesAndroidInjector
+    abstract fun detailMovie() : DetailMovie
 }

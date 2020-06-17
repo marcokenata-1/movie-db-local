@@ -1,4 +1,4 @@
-package com.example.movieappv2.data.network.response
+package com.marcokenata.moviedatabase.data.network.response
 
 import com.google.gson.annotations.SerializedName
 
@@ -8,7 +8,7 @@ data class Result(
     val backdropPath: String,
     @SerializedName("genre_ids")
     val genreIds: ArrayList<Int>,
-//    val id: Int,
+    val id: Int,
     @SerializedName("original_language")
     val originalLanguage: String,
     @SerializedName("original_title")

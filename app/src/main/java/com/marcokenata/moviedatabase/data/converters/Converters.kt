@@ -1,7 +1,7 @@
 package com.marcokenata.moviedatabase.data.converters
 
 import androidx.room.TypeConverter
-import com.example.movieappv2.data.network.response.Result
+import com.marcokenata.moviedatabase.data.network.response.Result
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

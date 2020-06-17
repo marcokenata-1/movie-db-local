@@ -22,8 +22,4 @@ class MovieApplication : Application(), HasAndroidInjector {
     }
 
     override fun androidInjector(): AndroidInjector<Any> = androidInjector
-
-
-
-
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/menu_popular">
+
+    <fragment
+        android:id="@+id/menu_nowPlaying"
+        android:name="com.marcokenata.moviedatabase.ui.nowplaying.NowPlaying"
+        android:label="Now Playing"
+        tools:layout="@layout/now_playing_fragment" />
+    <fragment
+        android:id="@+id/menu_popular"
+        android:name="com.marcokenata.moviedatabase.ui.popular.Popular"
+        android:label="Popular"
+        tools:layout="@layout/popular_fragment" />
+    <fragment
+        android:id="@+id/menu_topRated"
+        android:name="com.marcokenata.moviedatabase.ui.toprated.TopRated"
+        android:label="Top Rated"
+        tools:layout="@layout/top_rated_fragment" />
+</navigation>

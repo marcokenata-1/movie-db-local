@@ -4,7 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.nowplaying.NowPlaying">
+    tools:context=".ui.favorites.Favorites">
+
+    <TextView
+        android:id="@+id/tv_noFavs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="No favorites" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_movie"

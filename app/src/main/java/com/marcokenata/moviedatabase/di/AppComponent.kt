@@ -1,5 +1,6 @@
 package com.marcokenata.moviedatabase.di
 
+import android.app.Application
 import com.marcokenata.moviedatabase.MovieApplication
 import dagger.BindsInstance
 import dagger.Component
@@ -25,8 +26,8 @@ interface AppComponent : AndroidInjector<MovieApplication> {
     interface Builder {
 
         @BindsInstance
-        fun application(application: MovieApplication) : Builder
-        fun build() : AppComponent
+        fun application(application: Application): Builder
+        fun build(): AppComponent
     }
 
 }

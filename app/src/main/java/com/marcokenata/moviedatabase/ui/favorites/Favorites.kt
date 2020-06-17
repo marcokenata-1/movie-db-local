@@ -1,49 +1,54 @@
-package com.marcokenata.moviedatabase.ui.popular
+package com.marcokenata.moviedatabase.ui.favorites
 
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.marcokenata.moviedatabase.R
 import com.marcokenata.moviedatabase.ui.adapter.MovieAdapter
+import com.marcokenata.moviedatabase.ui.adapter.MovieDBAdapter
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.android.synthetic.main.favorites_fragment.*
+import kotlinx.android.synthetic.main.favorites_fragment.rv_movie
 import kotlinx.android.synthetic.main.popular_fragment.*
 import javax.inject.Inject
 
-class Popular : Fragment() {
+class Favorites : Fragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private lateinit var viewModel: PopularViewModel
+    private lateinit var viewModel: FavoritesViewModel
 
-    var adapter: MovieAdapter? = null
+    var adapter: MovieDBAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.popular_fragment, container, false)
+        return inflater.inflate(R.layout.favorites_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         AndroidSupportInjection.inject(this)
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(PopularViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(FavoritesViewModel::class.java)
 
-        viewModel.popular.observe(
-            viewLifecycleOwner, Observer {
-                adapter = MovieAdapter(context, it.results)
+        viewModel.favorites.observe(viewLifecycleOwner, Observer {
+            if (it.isEmpty()) {
+                tv_noFavs.visibility = View.VISIBLE
+            } else {
+                tv_noFavs.visibility = View.GONE
+                adapter = MovieDBAdapter(context, it)
                 rv_movie.layoutManager = LinearLayoutManager(context)
                 rv_movie.adapter = adapter
             }
-        )
+        })
     }
 
 }

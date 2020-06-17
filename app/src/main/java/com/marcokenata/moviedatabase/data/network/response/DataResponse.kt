@@ -1,4 +1,4 @@
-package com.example.movieappv2.data.network.response
+package com.marcokenata.moviedatabase.data.network.response
 
 
 import com.google.gson.annotations.SerializedName

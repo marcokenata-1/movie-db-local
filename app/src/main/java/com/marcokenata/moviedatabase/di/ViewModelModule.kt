@@ -1,6 +1,7 @@
 package com.marcokenata.moviedatabase.di
 
 import androidx.lifecycle.ViewModel
+import com.marcokenata.moviedatabase.ui.favorites.FavoritesViewModel
 import com.marcokenata.moviedatabase.ui.nowplaying.NowPlayingViewModel
 import com.marcokenata.moviedatabase.ui.popular.PopularViewModel
 import com.marcokenata.moviedatabase.ui.toprated.TopRatedViewModel
@@ -14,17 +15,21 @@ internal abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(NowPlayingViewModel::class)
-    internal abstract fun nowPlayingViewModel(nowPlayingViewModel: NowPlayingViewModel): ViewModel
+    abstract fun nowPlayingViewModel(viewModel: NowPlayingViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(PopularViewModel::class)
-    internal abstract fun popularViewModel(popularViewModel: PopularViewModel): ViewModel
+    abstract fun popularViewModel(viewModel: PopularViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(TopRatedViewModel::class)
-    internal abstract fun topRatedViewModel(topRatedViewModel: TopRatedViewModel): ViewModel
+    abstract fun topRatedViewModel(viewModel: TopRatedViewModel): ViewModel
 
+    @Binds
+    @IntoMap
+    @ViewModelKey(FavoritesViewModel::class)
+    abstract fun favoritesViewModel(viewModel: FavoritesViewModel): ViewModel
 
 }

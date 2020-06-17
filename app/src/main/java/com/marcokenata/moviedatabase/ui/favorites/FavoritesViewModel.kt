@@ -1,14 +1,17 @@
-package com.marcokenata.moviedatabase.ui.nowplaying
+package com.marcokenata.moviedatabase.ui.favorites
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.marcokenata.moviedatabase.data.db.MovieFavorites
 import com.marcokenata.moviedatabase.data.network.response.DataResponse
 import com.marcokenata.moviedatabase.data.repository.MovieRepository
 import kotlinx.coroutines.*
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-class NowPlayingViewModel @Inject constructor(private var movieRepository: MovieRepository) : ViewModel(), CoroutineScope {
+class FavoritesViewModel @Inject constructor(private val movieRepository: MovieRepository) :
+    ViewModel(), CoroutineScope {
+
     override val coroutineContext: CoroutineContext
         get() = SupervisorJob() + Dispatchers.Main
 
@@ -17,13 +20,11 @@ class NowPlayingViewModel @Inject constructor(private var movieRepository: Movie
         coroutineContext.cancel()
     }
 
-    val nowPlaying = MutableLiveData<DataResponse>()
+    val favorites = MutableLiveData<List<MovieFavorites>>()
 
     init {
         launch {
-            nowPlaying.value = movieRepository.fetchNowPlayingMoviesRepo(1).value
+            favorites.value = movieRepository.favoriteList().value
         }
     }
-
-
 }

@@ -1,7 +1,7 @@
 package com.marcokenata.moviedatabase.data.network
 
-import com.example.movieappv2.data.network.response.DataResponse
-import com.example.movieappv2.data.network.response.Result
+import com.marcokenata.moviedatabase.data.network.response.DataResponse
+import com.marcokenata.moviedatabase.data.network.response.Result
 import com.marcokenata.moviedatabase.data.network.response.ReviewResponse
 import retrofit2.Call
 import retrofit2.http.GET
