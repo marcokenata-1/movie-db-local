@@ -7,7 +7,7 @@ import com.marcokenata.moviedatabase.data.network.response.Result
 @Entity(tableName = "movie_favorites")
 class MovieFavorites(
     val movieId: Int,
-    val movieResult: Result
+    val movieResult: Result?
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0

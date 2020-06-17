@@ -38,6 +38,7 @@ class NetModule {
     @Provides
     @Singleton
     fun okHttpClient() : OkHttpClient {
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder()
             .addInterceptor(interceptor)
             .addInterceptor(requestInterceptor)

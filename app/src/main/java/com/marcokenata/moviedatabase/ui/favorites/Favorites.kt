@@ -40,7 +40,7 @@ class Favorites : Fragment() {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(FavoritesViewModel::class.java)
 
         viewModel.favorites.observe(viewLifecycleOwner, Observer {
-            if (it.isEmpty()) {
+            if (it.isNullOrEmpty()) {
                 tv_noFavs.visibility = View.VISIBLE
             } else {
                 tv_noFavs.visibility = View.GONE

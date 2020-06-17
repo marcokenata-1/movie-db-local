@@ -8,13 +8,13 @@ interface MovieDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertFavorite(movieFavorites: MovieFavorites)
 
-    @Delete
-    fun removeFavorite(movieFavorites: MovieFavorites)
+    @Query("delete from movie_favorites where movieId like :id")
+    fun removeFavorite(id: Int)
 
     @Query("select * from movie_favorites")
     fun showFavorite() : List<MovieFavorites>
 
-    @Query("select * from movie_favorites where id like :id ")
+    @Query("select * from movie_favorites where movieId like :id ")
     fun checkinFavorites(id : Int) : MovieFavorites
 
 }

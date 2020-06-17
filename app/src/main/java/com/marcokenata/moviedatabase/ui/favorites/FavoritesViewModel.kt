@@ -3,7 +3,6 @@ package com.marcokenata.moviedatabase.ui.favorites
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.marcokenata.moviedatabase.data.db.MovieFavorites
-import com.marcokenata.moviedatabase.data.network.response.DataResponse
 import com.marcokenata.moviedatabase.data.repository.MovieRepository
 import kotlinx.coroutines.*
 import javax.inject.Inject

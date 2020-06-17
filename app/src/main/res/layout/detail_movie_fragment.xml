@@ -1,13 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="mvDetail"
+            type="com.marcokenata.moviedatabase.data.network.response.Result" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.detailmovie.DetailMovie">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+    <Button
+        android:id="@+id/bt_adder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/iv_moviePoster"
+        android:background="#ffffff"
+        android:text="add in favorites"
+        android:padding="5dp"
+        android:textAllCaps="false"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/bt_remover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/iv_moviePoster"
+        android:background="@color/colorPrimary"
+        android:visibility="gone"
+        android:text="added to favorites"
+        android:textColor="#ffffff"
+        android:padding="5dp"
+        android:textAllCaps="false"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_moviePoster"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        app:cardViewImage="@{mvDetail.posterPath}"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_movieTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_moviePoster"
+        android:layout_marginLeft="16dp"
+
+        android:layout_marginTop="16dp"
+        android:text="@{mvDetail.originalTitle}"/>
+
+    <TextView
+        android:id="@+id/tv_overview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_movieTitle"
+        android:layout_marginLeft="16dp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:text="Overview"/>
+
+    <TextView
+        android:id="@+id/tv_sinposis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_overview"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@{mvDetail.overview}"/>
+
+    <TextView
+        android:id="@+id/tv_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sinposis"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Reviews"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_movieReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_review"
+        android:layout_marginTop="16dp"
+        tools:listitem="@layout/review_ticket" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

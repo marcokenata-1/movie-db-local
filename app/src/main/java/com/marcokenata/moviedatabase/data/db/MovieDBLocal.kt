@@ -7,7 +7,7 @@ import com.marcokenata.moviedatabase.data.converters.Converters
 
 @Database(
     entities = [MovieFavorites::class],
-    version = 1,
+    version = 3,
     exportSchema = false
 )
 @TypeConverters(Converters::class)

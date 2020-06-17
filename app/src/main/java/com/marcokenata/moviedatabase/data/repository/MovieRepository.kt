@@ -67,9 +67,9 @@ class MovieRepository @Inject constructor(
     }
 
     @Provides
-    suspend fun deleteFavorite(movieFavorites: MovieFavorites){
+    suspend fun deleteFavorite(id: Int){
         return withContext(Dispatchers.IO){
-            movieDBDataSource.removeFavorite(movieFavorites)
+            movieDBDataSource.removeFavorite(id)
         }
     }
 

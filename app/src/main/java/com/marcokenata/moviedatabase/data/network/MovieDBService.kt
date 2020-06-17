@@ -28,13 +28,13 @@ interface MovieDBService {
         @Query("page") page: Int
     ): Call<DataResponse>
 
-    @GET("/{id}")
+    @GET("{id}")
     fun getMovieDetails(
         @Path("id") movieId: Int
     ): Call<Result>
 
 
-    @GET("/{id}/reviews")
+    @GET("{id}/reviews")
     fun getMovieReviews(
         @Path("id") movieId: Int
     ): Call<ReviewResponse>

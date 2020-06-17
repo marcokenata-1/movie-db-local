@@ -2,6 +2,7 @@ package com.marcokenata.moviedatabase.ui.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,11 +28,11 @@ class MovieDBAdapter : RecyclerView.Adapter<MovieDBAdapter.MultiViewHoler> {
 
     class MultiViewHoler(view : View?) : RecyclerView.ViewHolder(view!!) {
 
-        fun bind(result: Result){
+        fun bind(result: Result?){
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, MovieDetails::class.java)
-                intent.putExtra("movieId",result.id)
-                intent.putExtra("movieTitle",result.originalTitle)
+                intent.putExtra("movieId",result?.id)
+                intent.putExtra("movieTitle",result?.originalTitle)
                 itemView.context.startActivity(intent)
             }
         }
@@ -48,6 +49,7 @@ class MovieDBAdapter : RecyclerView.Adapter<MovieDBAdapter.MultiViewHoler> {
     }
 
     override fun onBindViewHolder(holder: MultiViewHoler, position: Int) {
+        Log.d("favorite12",listOfMovies[position].movieId.toString()+" "+listOfMovies[position].movieResult)
         binding?.movie = listOfMovies[position].movieResult
         holder.bind(listOfMovies[position].movieResult)
     }

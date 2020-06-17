@@ -11,7 +11,7 @@ object Converters {
     @JvmStatic
     fun resultToString(result: Result): String {
         val gson = Gson()
-        return gson.toJson(Result)
+        return gson.toJson(result)
     }
 
     @TypeConverter

@@ -20,6 +20,7 @@ class RoomModule {
             "movieDB.db"
         )
             .fallbackToDestructiveMigration()
+
             .build()
     }
 

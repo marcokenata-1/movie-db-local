@@ -29,9 +29,9 @@ class MovieDBDataSource @Inject constructor(private val movieDao: MovieDao){
     }
 
     @Provides
-    suspend fun removeFavorite(movieFavorites: MovieFavorites){
+    suspend fun removeFavorite(id: Int){
         return withContext(Dispatchers.IO){
-            movieDao.removeFavorite(movieFavorites)
+            movieDao.removeFavorite(id)
         }
     }
 
