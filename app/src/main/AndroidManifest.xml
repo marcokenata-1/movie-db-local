@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".ui.MovieDetails"></activity>
+        <activity android:name=".ui.MovieDetails" android:parentActivityName=".ui.MainActivity"></activity>
         <activity
             android:name=".ui.MovieFavoriteHost"
             android:parentActivityName=".ui.MainActivity"></activity>

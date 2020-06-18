@@ -13,7 +13,7 @@ class MovieFavoriteHost : AppCompatActivity() {
 
         setSupportActionBar(findViewById(R.id.my_toolbar_fav))
 
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         supportActionBar?.title = "Favorites"
     }

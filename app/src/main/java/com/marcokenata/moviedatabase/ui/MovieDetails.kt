@@ -12,6 +12,8 @@ class MovieDetails : AppCompatActivity() {
          val getTitle = intent.extras?.get("movieTitle")
         setSupportActionBar(findViewById(R.id.my_toolbar_details))
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         supportActionBar?.title = getTitle.toString()
     }
 }

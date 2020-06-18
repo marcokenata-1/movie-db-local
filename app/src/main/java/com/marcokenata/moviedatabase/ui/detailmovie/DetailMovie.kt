@@ -11,10 +11,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.gson.Gson
 import com.marcokenata.moviedatabase.R
 import com.marcokenata.moviedatabase.data.db.MovieFavorites
-import com.marcokenata.moviedatabase.data.network.response.Result
 import com.marcokenata.moviedatabase.databinding.DetailMovieFragmentBinding
 import com.marcokenata.moviedatabase.ui.adapter.ReviewAdapter
 import dagger.android.support.AndroidSupportInjection
@@ -52,7 +50,6 @@ class DetailMovie : Fragment() {
         viewModel.checkFav(movieId)
         viewModel.details.observe(viewLifecycleOwner, Observer { res ->
             binding.mvDetail = res
-            Log.d("favorite11",res.toString())
             bt_adder.setOnClickListener {
                 viewModel.addtoFav(MovieFavorites(movieId,res))
                 bt_adder.visibility = View.GONE
