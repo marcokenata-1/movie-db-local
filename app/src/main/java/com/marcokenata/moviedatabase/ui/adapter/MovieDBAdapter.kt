@@ -49,7 +49,6 @@ class MovieDBAdapter : RecyclerView.Adapter<MovieDBAdapter.MultiViewHoler> {
     }
 
     override fun onBindViewHolder(holder: MultiViewHoler, position: Int) {
-        Log.d("favorite12",listOfMovies[position].movieId.toString()+" "+listOfMovies[position].movieResult)
         binding?.movie = listOfMovies[position].movieResult
         holder.bind(listOfMovies[position].movieResult)
     }

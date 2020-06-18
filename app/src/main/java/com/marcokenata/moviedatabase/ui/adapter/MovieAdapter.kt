@@ -1,15 +1,12 @@
 package com.marcokenata.moviedatabase.ui.adapter
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.google.gson.Gson
 import com.marcokenata.moviedatabase.R
 import com.marcokenata.moviedatabase.data.network.response.Result
 import com.marcokenata.moviedatabase.databinding.ItemTicketBinding

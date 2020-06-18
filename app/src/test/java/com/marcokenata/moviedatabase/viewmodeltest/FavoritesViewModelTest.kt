@@ -2,11 +2,9 @@ package com.marcokenata.moviedatabase.viewmodeltest
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
-import com.marcokenata.moviedatabase.data.network.MovieDataSource
-import com.marcokenata.moviedatabase.data.network.response.DataResponse
+import com.marcokenata.moviedatabase.data.db.MovieFavorites
 import com.marcokenata.moviedatabase.data.repository.MovieRepository
-import com.marcokenata.moviedatabase.ui.nowplaying.NowPlayingViewModel
-import com.marcokenata.moviedatabase.ui.popular.PopularViewModel
+import com.marcokenata.moviedatabase.ui.favorites.FavoritesViewModel
 import com.marcokenata.moviedatabase.utils.CoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.After
@@ -21,7 +19,7 @@ import org.mockito.junit.MockitoJUnitRunner
 
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
-class NowPlayingViewModelTest {
+class FavoritesViewModelTest {
 
     @get:Rule
     val taskExecutorRule = InstantTaskExecutorRule()
@@ -33,10 +31,8 @@ class NowPlayingViewModelTest {
     private lateinit var movieRepository: MovieRepository
 
     @Mock
-    private lateinit var liveData : MutableLiveData<DataResponse>
+    private lateinit var liveData : MutableLiveData<List<MovieFavorites>>
 
-    @Mock
-    private lateinit var movieDataSource: MovieDataSource
 
 
     @Before
@@ -49,9 +45,9 @@ class NowPlayingViewModelTest {
         testCoroutineRule.runBlockingTest {
             doReturn(liveData)
                 .`when`(movieRepository)
-                .fetchNowPlayingMoviesRepo(1)
-            val viewModel = NowPlayingViewModel(movieRepository)
-            assertTrue(viewModel.nowPlaying.value == liveData.value)
+                .favoriteList()
+            val viewModel = FavoritesViewModel(movieRepository)
+            assertTrue(viewModel.favorites.value == liveData.value)
         }
     }
 
