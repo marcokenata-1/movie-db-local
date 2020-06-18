@@ -1,5 +1,6 @@
 package com.marcokenata.moviedatabase.viewmodeltest
 
+import android.graphics.Movie
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import com.marcokenata.moviedatabase.data.db.MovieFavorites
@@ -67,10 +68,18 @@ class DetailMovieViewModelTest {
 
     @Test
     fun adder() {
-        testCoroutineRule.run {
+        testCoroutineRule.runBlockingTest {
             val movieFavorites = MovieFavorites(1, result)
             viewModel.addtoFav(movieFavorites)
+            val liveData = MutableLiveData<MovieFavorites>()
+            liveData.postValue(movieFavorites)
+            doReturn(liveData)
+                .`when`(movieRepository)
+                .checkFavorite(1)
+            viewModel.checkFav(1)
+            assertTrue(viewModel.favoriteCheck.value == liveData.value)
             viewModel.removeFav(1)
         }
+
     }
 }
