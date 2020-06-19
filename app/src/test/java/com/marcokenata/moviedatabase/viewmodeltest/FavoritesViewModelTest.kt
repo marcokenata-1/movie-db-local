@@ -35,10 +35,7 @@ class FavoritesViewModelTest {
 
 
 
-    @Before
-    fun setUp() {
-        // do something if required
-    }
+
 
     @Test
     fun testGetSuccess() {
@@ -51,8 +48,5 @@ class FavoritesViewModelTest {
         }
     }
 
-    @After
-    fun tearDown() {
-        // do something if required
-    }
+
 }

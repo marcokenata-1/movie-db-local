@@ -35,14 +35,8 @@ class NowPlayingViewModelTest {
     @Mock
     private lateinit var liveData : MutableLiveData<DataResponse>
 
-    @Mock
-    private lateinit var movieDataSource: MovieDataSource
 
 
-    @Before
-    fun setUp() {
-        // do something if required
-    }
 
     @Test
     fun testGetSuccess() {
@@ -55,8 +49,5 @@ class NowPlayingViewModelTest {
         }
     }
 
-    @After
-    fun tearDown() {
-        // do something if required
-    }
+
 }

@@ -31,14 +31,8 @@ class PopularViewModelTest {
     private lateinit var movieRepository: MovieRepository
 
     @Mock
-    private lateinit var liveData : MutableLiveData<DataResponse>
+    private lateinit var liveData: MutableLiveData<DataResponse>
 
-
-
-    @Before
-    fun setUp() {
-        // do something if required
-    }
 
     @Test
     fun testGetSuccess() {
@@ -50,9 +44,5 @@ class PopularViewModelTest {
             assertTrue(viewModel.popular.value == liveData.value)
         }
     }
-
-    @After
-    fun tearDown() {
-        // do something if required
-    }
 }
+

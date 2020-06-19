@@ -4,7 +4,6 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import com.marcokenata.moviedatabase.data.network.response.DataResponse
 import com.marcokenata.moviedatabase.data.repository.MovieRepository
-import com.marcokenata.moviedatabase.ui.popular.PopularViewModel
 import com.marcokenata.moviedatabase.ui.toprated.TopRatedViewModel
 import com.marcokenata.moviedatabase.utils.CoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -36,10 +35,7 @@ class TopRatedViewModelTest {
 
 
 
-    @Before
-    fun setUp() {
-        // do something if required
-    }
+
 
     @Test
     fun testGetSuccess() {
@@ -52,8 +48,5 @@ class TopRatedViewModelTest {
         }
     }
 
-    @After
-    fun tearDown() {
-        // do something if required
-    }
+
 }
