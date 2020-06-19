@@ -7,6 +7,6 @@ This appllcation has a capability to :
 - Removing a favorite movie
 - List all of the favorite movies
 
-![Load all movies](images/load.png)
-![Load movie details](images/details.png)
-![Load movie favorites](images/favorite.png)
+![Load all movies](images/load.png =150x100)
+![Load movie details](images/details.png =150x100)
+![Load movie favorites](images/favorite.png =150x100)
